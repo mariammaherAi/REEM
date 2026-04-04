@@ -255,6 +255,18 @@ footer span{color:var(--cyan)}
 </footer>
 
 <script>
+  const SUPABASE_URL='https://sapbighrzyzqniugfxmk.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNhcGJpZ2hyenl6cW5pdWdmeG1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzMzIwMDMsImV4cCI6MjA5MDkwODAwM30.ah_b-u-9yn690HCL5gXmhMwATxEGNM4ZrK73udboJFA';
+
+async function saveScanResult(patientType,confidence){
+  try{
+    await fetch(`${SUPABASE_URL}/rest/v1/scan_results`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`},
+      body:JSON.stringify({patient_type:patientType,confidence:confidence,created_at:new Date().toISOString()})
+    });
+  }catch(e){console.log('DB error:',e);}
+}
 const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('on')),{threshold:.07});
 document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
 
@@ -311,7 +323,7 @@ function simulate(type){
     fill.style.background=`linear-gradient(90deg,var(--primary),var(--cyan))`;
     fill.style.boxShadow=`0 0 12px var(--glow)`;
     fill.style.width='0';
-    setTimeout(()=>{fill.style.width=p.conf+'%'},100);
+    setTimeout(()=>{fill.style.width=p.conf+'%'},100);saveScanResult(p.title, p.conf);
   },600);
 }
 </script>
