@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>REEM | About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#020b18;--primary:#0ea5e9;--cyan:#22d3ee;--glow:#0ea5e960;--text:#e2eaf4;--muted:#6b8ca8;--border:#0ea5e918}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.09;pointer-events:none;z-index:0}
+.orb1{width:600px;height:600px;background:#0ea5e9;top:-200px;right:-150px;animation:floatOrb 10s ease-in-out infinite}
+.orb2{width:500px;height:500px;background:#22d3ee;bottom:-150px;left:-150px;animation:floatOrb 10s ease-in-out infinite 4s}
+@keyframes floatOrb{0%,100%{transform:translateY(0)}50%{transform:translateY(-40px)}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 52px;background:rgba(2,11,24,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--primary);letter-spacing:.12em}
+.logo em{color:var(--cyan);font-style:normal}
+nav ul{display:flex;align-items:center;gap:8px;list-style:none}
+nav a{font-family:'DM Mono',monospace;color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:3px;transition:.25s}
+nav a:hover{color:var(--cyan)}
+.nav-btn{background:var(--primary)!important;color:#020b18!important}
+.nav-btn:hover{background:var(--cyan)!important}
+
+/* PAGE */
+.page{position:relative;z-index:1;padding:120px 52px 80px}
+.stag{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.stag::before{content:'// '}
+.sec-h{font-family:'Syne',sans-serif;font-size:clamp(1.7rem,3vw,2.8rem);font-weight:800;line-height:1.15;margin-bottom:12px}
+.sec-h span{background:linear-gradient(135deg,var(--primary),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-sub{color:var(--muted);font-size:.93rem;line-height:1.85;max-width:600px;margin-bottom:50px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:60px 0}
+
+/* HERO SPLIT */
+.about-hero{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:80px}
+.rq-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+.rq-text{font-size:.9rem;color:var(--text);line-height:1.9;font-style:italic;border-left:2px solid var(--primary);padding-left:18px;margin-bottom:24px}
+.hyp-label{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.hyp-text{font-size:.85rem;color:var(--muted);line-height:1.85;border-left:2px solid rgba(14,165,233,.3);padding-left:18px}
+.target-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);padding:8px 16px;border-radius:4px;font-family:'DM Mono',monospace;font-size:.68rem;color:#4ade80;margin-top:18px;letter-spacing:.06em}
+.about-hero-right{background:rgba(7,22,40,.7);border:1px solid var(--border);border-radius:10px;padding:32px}
+
+/* ARCHITECTURE */
+.arch-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:40px}
+.arch-flow::before{content:'';position:absolute;top:36px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,var(--primary),var(--cyan));opacity:.3;z-index:0}
+.arch-node{text-align:center;padding:16px 12px;position:relative;z-index:1}
+.arch-icon{width:72px;height:72px;border-radius:12px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:26px;border:1px solid rgba(14,165,233,.25);background:rgba(7,22,40,.9);position:relative;transition:.3s}
+.arch-icon::after{content:'';position:absolute;inset:-1px;border-radius:12px;background:linear-gradient(135deg,rgba(14,165,233,.15),transparent);opacity:0;transition:.3s}
+.arch-node:hover .arch-icon{border-color:rgba(14,165,233,.6);transform:translateY(-4px)}
+.arch-node:hover .arch-icon::after{opacity:1}
+.arch-arrow{position:absolute;top:36px;right:-8px;color:var(--primary);font-size:.8rem;z-index:2}
+.arch-name{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;margin-bottom:6px}
+.arch-desc{font-size:.74rem;color:var(--muted);line-height:1.6}
+
+/* COMPONENTS */
+.comp-deep{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.comp-card{background:rgba(7,22,40,.7);border:1px solid var(--border);border-radius:8px;padding:28px;transition:.3s;position:relative;overflow:hidden}
+.comp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--primary),var(--cyan));transform:scaleX(0);transform-origin:left;transition:.4s}
+.comp-card:hover{border-color:rgba(14,165,233,.25);transform:translateY(-3px)}
+.comp-card:hover::before{transform:scaleX(1)}
+.comp-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.comp-icon-box{width:44px;height:44px;border-radius:8px;background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.18);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.comp-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800}
+.comp-subtitle{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);margin-top:2px}
+.comp-body{color:var(--muted);font-size:.84rem;line-height:1.8;margin-bottom:16px}
+.comp-specs{display:flex;flex-direction:column;gap:6px}
+.comp-spec{display:flex;justify-content:space-between;padding:6px 10px;background:rgba(14,165,233,.04);border-radius:4px;border:1px solid rgba(14,165,233,.08)}
+.comp-spec-k{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--muted)}
+.comp-spec-v{font-family:'DM Mono',monospace;font-size:.62rem;color:var(--text);font-weight:500}
+
+/* VARIABLES */
+.vars-table{width:100%;border-collapse:collapse;margin-top:20px}
+.vars-table th{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:12px 18px;text-align:left;border-bottom:1px solid var(--border)}
+.vars-table td{font-size:.84rem;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.03);line-height:1.7}
+.vars-table tr:hover td{background:rgba(14,165,233,.03)}
+.var-type{font-family:'DM Mono',monospace;font-size:.65rem;padding:3px 10px;border-radius:2px;font-weight:500}
+.vt-ind{background:rgba(14,165,233,.12);color:var(--primary)}
+.vt-dep{background:rgba(34,211,238,.12);color:var(--cyan)}
+.vt-ctrl{background:rgba(99,102,241,.12);color:#818cf8}
+
+/* INNOVATION */
+.innov-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.innov-card{background:rgba(7,22,40,.7);border:1px solid var(--border);border-radius:8px;padding:24px;text-align:center;transition:.3s}
+.innov-card:hover{border-color:rgba(14,165,233,.25);transform:translateY(-4px)}
+.innov-num{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.innov-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* DEVELOPER */
+.dev-section{background:rgba(7,22,40,.5);border:1px solid var(--border);border-radius:10px;padding:48px;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start;margin-top:20px}
+.dev-left{text-align:center;min-width:180px}
+
+/* REAL PHOTO */
+.avatar-photo{width:120px;height:120px;border-radius:50%;margin:0 auto 18px;overflow:hidden;border:2px solid rgba(14,165,233,.4);box-shadow:0 0 40px var(--glow),0 0 0 4px rgba(14,165,233,.08)}
+.avatar-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+.dev-name{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:4px}
+.dev-role{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
+.dev-tags{display:flex;flex-direction:column;gap:6px;margin-top:16px}
+.dtag{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.06em;padding:5px 12px;border-radius:2px;background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.18);color:var(--cyan);text-align:center}
+
+.dev-bio{font-size:.9rem;color:var(--muted);line-height:1.9;margin-bottom:28px}
+.dev-highlight{font-size:.88rem;color:var(--text);line-height:1.85;padding:18px 20px;background:rgba(14,165,233,.04);border:1px solid rgba(14,165,233,.12);border-radius:6px;margin-bottom:20px}
+.dev-highlight strong{color:var(--cyan)}
+.comp-info{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ci-box{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:16px}
+.ci-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ci-val{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:var(--text)}
+
+footer{position:relative;z-index:1;text-align:center;padding:30px 52px;color:var(--muted);font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.07em;border-top:1px solid var(--border)}
+footer span{color:var(--cyan)}
+.fade{opacity:0;transform:translateY(22px);transition:.75s ease}
+.fade.on{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .page{padding:100px 24px 60px}
+  .about-hero,.comp-deep,.innov-grid,.dev-section{grid-template-columns:1fr}
+  .arch-flow{grid-template-columns:1fr 1fr}
+  .arch-flow::before{display:none}
+  .comp-info{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+
+<nav>
+  <div class="logo">RE<em>EM</em></div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="demo.html">Demo</a></li>
+    <li><a href="results.html">Results</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="demo.html" class="nav-btn">Try Demo →</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="fade">
+    <div class="stag">The Research</div>
+    <div class="sec-h">About <span>REEM</span></div>
+    <div class="sec-sub">A non-invasive, privacy-preserving AI diagnostic system for early Alzheimer's detection — built at the intersection of neuroscience, deep learning, and federated computing.</div>
+  </div>
+
+  <!-- HERO SPLIT -->
+  <div class="about-hero fade">
+    <div class="about-hero-left">
+      <div class="stag">Research Question</div>
+      <div class="sec-h" style="font-size:1.6rem;margin-bottom:20px">The Core <span>Question</span></div>
+      <div class="rq-text">"Can a non-invasive wearable system integrating fNIRS-based hemodynamic signals with a hybrid CNN-LSTM model and Federated Learning achieve clinically significant accuracy in early-stage Alzheimer's detection while preserving patient data privacy?"</div>
+      <div class="hyp-label">Hypothesis</div>
+      <div class="hyp-text">A wearable fNIRS system combined with CNN-LSTM trained using Federated Learning will achieve ≥85% classification accuracy in distinguishing Healthy Controls, MCI patients, and early Alzheimer's patients — while maintaining full data privacy through distributed training.</div>
+      <div class="target-badge">✓ Target: ≥85% accuracy &nbsp;·&nbsp; Achieved: 98.67%</div>
+    </div>
+    <div class="about-hero-right">
+      <div class="rq-label">Project Overview</div>
+      <div style="display:flex;flex-direction:column;gap:0;margin-bottom:24px">
+        <div style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)">
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted)">System</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text)">REEM — Early Alzheimer Detection</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)">
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted)">Domain</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--cyan)">Medical AI · Neuroscience</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)">
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted)">Developer</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text)">Mariam Maher</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)">
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted)">Model</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--text)">CNN-LSTM + Federated Learning</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:10px 14px">
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted)">Accuracy Achieved</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.65rem;color:#4ade80;font-weight:700">98.67%</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="text-align:center;padding:14px;background:rgba(14,165,233,.05);border-radius:6px;border:1px solid var(--border)">
+          <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">3</div>
+          <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px">Classes</div>
+        </div>
+        <div style="text-align:center;padding:14px;background:rgba(14,165,233,.05);border-radius:6px;border:1px solid var(--border)">
+          <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">5</div>
+          <div style="font-family:'DM Mono',monospace;font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px">Components</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ARCHITECTURE -->
+  <div class="fade">
+    <div class="stag">System Design</div>
+    <div class="sec-h">REEM <span>Architecture</span></div>
+    <div class="sec-sub">Five integrated layers forming a complete end-to-end diagnostic pipeline.</div>
+    <div class="arch-flow">
+      <div class="arch-node">
+        <div class="arch-icon">📡<div class="arch-arrow">→</div></div>
+        <div class="arch-name">fNIRS Sensor</div>
+        <div class="arch-desc">Near-infrared hemodynamic signal capture</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-icon">⚙️<div class="arch-arrow">→</div></div>
+        <div class="arch-name">Preprocessing</div>
+        <div class="arch-desc">Signal filtering & normalization</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-icon">🤖<div class="arch-arrow">→</div></div>
+        <div class="arch-name">CNN-LSTM</div>
+        <div class="arch-desc">Spatial + temporal deep learning</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-icon">🔐<div class="arch-arrow">→</div></div>
+        <div class="arch-name">Federated</div>
+        <div class="arch-desc">Privacy-preserving distributed training</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-icon">📊</div>
+        <div class="arch-name">Diagnosis</div>
+        <div class="arch-desc">3-class clinical output</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMPONENTS -->
+  <div class="fade">
+    <div class="stag">Component Details</div>
+    <div class="sec-h">Technical <span>Deep Dive</span></div>
+    <div class="comp-deep">
+      <div class="comp-card">
+        <div class="comp-header">
+          <div class="comp-icon-box">📡</div>
+          <div><div class="comp-title">fNIRS Sensor Layer</div><div class="comp-subtitle">Functional Near-Infrared Spectroscopy</div></div>
+        </div>
+        <div class="comp-body">Non-invasive optical imaging technique that measures hemodynamic responses in the prefrontal cortex — the first brain region affected by Alzheimer's pathology. Unlike MRI or PET, fNIRS is portable, silent, and wearable.</div>
+        <div class="comp-specs">
+          <div class="comp-spec"><span class="comp-spec-k">Method</span><span class="comp-spec-v">Near-infrared light absorption</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Target Region</span><span class="comp-spec-v">Prefrontal Cortex</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Invasiveness</span><span class="comp-spec-v">Non-invasive</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Channels</span><span class="comp-spec-v">19 EEG channels</span></div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-header">
+          <div class="comp-icon-box">🤖</div>
+          <div><div class="comp-title">CNN-LSTM Model</div><div class="comp-subtitle">Hybrid Deep Learning Architecture</div></div>
+        </div>
+        <div class="comp-body">Convolutional Neural Networks extract spatial feature maps from multi-channel EEG signals, while Long Short-Term Memory networks capture temporal dependencies across 128-timestep windows — achieving superior classification over either architecture alone.</div>
+        <div class="comp-specs">
+          <div class="comp-spec"><span class="comp-spec-k">Parameters</span><span class="comp-spec-v">214,531</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Input Shape</span><span class="comp-spec-v">128 × 19</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Output Classes</span><span class="comp-spec-v">3 (Healthy / MCI / AD)</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Optimizer</span><span class="comp-spec-v">Adam · lr=0.001</span></div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-header">
+          <div class="comp-icon-box">🔐</div>
+          <div><div class="comp-title">Federated Learning</div><div class="comp-subtitle">Privacy-Preserving Distributed AI</div></div>
+        </div>
+        <div class="comp-body">Instead of centralizing sensitive patient data, each device trains a local model and shares only encrypted gradient updates. The global model improves without ever exposing raw patient data — fully GDPR-compliant by design.</div>
+        <div class="comp-specs">
+          <div class="comp-spec"><span class="comp-spec-k">Framework</span><span class="comp-spec-v">Flower (flwr)</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Data Shared</span><span class="comp-spec-v">Encrypted gradients only</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Compliance</span><span class="comp-spec-v">GDPR · HIPAA aligned</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Privacy</span><span class="comp-spec-v">Local training only</span></div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-header">
+          <div class="comp-icon-box">⚡</div>
+          <div><div class="comp-title">tES + Bioenergy</div><div class="comp-subtitle">Therapeutic & Sustainable Layer</div></div>
+        </div>
+        <div class="comp-body">Transcranial Electrical Stimulation delivers safe, low-intensity electrical currents to support cognitive function in affected brain regions — transforming REEM from diagnostic-only to a therapeutic intervention platform powered by bioenergy harvesting.</div>
+        <div class="comp-specs">
+          <div class="comp-spec"><span class="comp-spec-k">Stimulation</span><span class="comp-spec-v">Transcranial Electrical (tES)</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Safety</span><span class="comp-spec-v">Low-intensity, non-invasive</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Power Source</span><span class="comp-spec-v">Bioenergy harvesting</span></div>
+          <div class="comp-spec"><span class="comp-spec-k">Goal</span><span class="comp-spec-v">Cognitive support</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- VARIABLES -->
+  <div class="fade">
+    <div class="stag">Research Design</div>
+    <div class="sec-h">Study <span>Variables</span></div>
+    <table class="vars-table">
+      <thead>
+        <tr>
+          <th>Type</th><th>Variable</th><th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="var-type vt-ind">Independent</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:.75rem;color:var(--primary)">Model Architecture</td>
+          <td style="color:var(--muted);font-size:.84rem">CNN-LSTM vs. CNN-only vs. LSTM-only — comparing classification approaches</td>
+        </tr>
+        <tr>
+          <td><span class="var-type vt-dep">Dependent</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:.75rem;color:var(--cyan)">Classification Accuracy</td>
+          <td style="color:var(--muted);font-size:.84rem">Accuracy, F1-Score, AUC-ROC, Confusion Matrix across 3 patient classes</td>
+        </tr>
+        <tr>
+          <td><span class="var-type vt-dep">Dependent</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:.75rem;color:var(--cyan)">Privacy Preservation</td>
+          <td style="color:var(--muted);font-size:.84rem">Data exposure level with vs. without Federated Learning protocol</td>
+        </tr>
+        <tr>
+          <td><span class="var-type vt-ctrl">Controlled</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:.75rem;color:#818cf8">Dataset</td>
+          <td style="color:var(--muted);font-size:.84rem">Same 1,000-sample EEG dataset across all model comparisons</td>
+        </tr>
+        <tr>
+          <td><span class="var-type vt-ctrl">Controlled</span></td>
+          <td style="font-family:'DM Mono',monospace;font-size:.75rem;color:#818cf8">Preprocessing Pipeline</td>
+          <td style="color:var(--muted);font-size:.84rem">Identical StandardScaler normalization and train/val/test split (70/15/15)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- INNOVATION -->
+  <div class="fade">
+    <div class="stag">Innovation</div>
+    <div class="sec-h">What Makes REEM <span>Unique</span></div>
+    <div class="sec-sub">No existing system integrates all five components into a single wearable device — that is REEM's core innovation.</div>
+    <div class="innov-grid">
+      <div class="innov-card">
+        <div class="innov-num">01</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:8px">First Integrated System</div>
+        <div style="color:var(--muted);font-size:.82rem;line-height:1.7">First system to combine fNIRS + CNN-LSTM + Federated Learning + tES in a single wearable device.</div>
+      </div>
+      <div class="innov-card">
+        <div class="innov-num">02</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:8px">Privacy by Design</div>
+        <div style="color:var(--muted);font-size:.82rem;line-height:1.7">Federated Learning ensures patient data never leaves the device — enabling global model improvement without data sharing.</div>
+      </div>
+      <div class="innov-card">
+        <div class="innov-num">03</div>
+        <div style="font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:8px">Diagnostic + Therapeutic</div>
+        <div style="color:var(--muted);font-size:.82rem;line-height:1.7">tES stimulation moves REEM beyond diagnosis into active cognitive support — addressing both detection and intervention.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- DEVELOPER -->
+  <div class="fade">
+    <div class="stag">The Researcher</div>
+    <div class="sec-h">Meet <span>Mariam Maher</span></div>
+    <div class="dev-section">
+      <div class="dev-left">
+        <div class="avatar-photo">
+          <img src="mariam.png" alt="Mariam Maher"/>
+        </div>
+        <div class="dev-name">Mariam Maher</div>
+        <div class="dev-role">AI Researcher</div>
+        <div class="dev-tags">
+          <span class="dtag">Deep Learning</span>
+          <span class="dtag">Neuroscience AI</span>
+          <span class="dtag">Federated Learning</span>
+          <span class="dtag">Medical AI</span>
+        </div>
+      </div>
+      <div class="dev-right">
+        <div class="dev-bio">Solo researcher and full-stack developer behind the REEM system. Passionate about applying cutting-edge artificial intelligence to solve critical real-world medical challenges — particularly in neurodegenerative disease detection where early intervention makes the greatest difference.</div>
+        <div class="dev-highlight">
+          Built REEM entirely as a <strong>solo project</strong> — from literature review and dataset design, to model architecture, Federated Learning simulation, and this full web platform.
+        </div>
+        <div class="comp-info">
+          <div class="ci-box"><div class="ci-label">Focus Area</div><div class="ci-val">Medical AI</div></div>
+          <div class="ci-box"><div class="ci-label">Specialization</div><div class="ci-val">Neuroscience & DL</div></div>
+          <div class="ci-box"><div class="ci-label">Project Type</div><div class="ci-val">Solo Research</div></div>
+          <div class="ci-box"><div class="ci-label">Model Accuracy</div><div class="ci-val" style="color:#4ade80">98.67%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  REEM — Early Alzheimer Detection System © 2026 &nbsp;|&nbsp; Developed by <span>Mariam Maher</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('on')),{threshold:.07});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
